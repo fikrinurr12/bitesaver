@@ -1,0 +1,955 @@
+:root {
+  --primary-color: #fccd2a; /* Sesuaikan warna tema */
+}
+a {
+  text-decoration: none;
+}
+/* Background putih untuk seluruh halaman */
+body {
+  background-color: #ffffff;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Gaya header penuh */
+.header-wrapper {
+  width: 100vw;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Kontainer dalam header untuk margin */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  margin: 0 100px; /* Tambahkan margin kiri dan kanan */
+}
+
+/* Gaya lokasi */
+.location {
+  display: flex;
+  align-items: flex-start;
+  color: #333333;
+}
+
+.location-icon {
+  color: var(--primary-color) !important;
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-top {
+  display: flex;
+  align-items: center;
+}
+
+.location-text {
+  font-size: 12px; /* Ukuran lebih kecil */
+  color: #333333;
+  margin-right: 5px;
+}
+
+.dropdown-icon {
+  color: var(--primary-color) !important;
+  font-size: 12px;
+}
+
+.address-text {
+  font-size: 16px; /* Lebih besar */
+  font-weight: bold; /* Bold */
+  color: #333333;
+}
+
+/* Gaya kolom pencarian */
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 300px; /* Lebih lebar */
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.filter-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Gaya ikon dan notifikasi */
+.icon-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.icon-container i {
+  font-size: 22px;
+  color: #555555;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-container i:hover {
+  color: var(--primary-color) !important;
+  transform: scale(1.1);
+}
+
+.dot-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+/* Animasi titik merah */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Gaya dropdown notifikasi */
+.dropdown-menu {
+  padding: 10px;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu li {
+  padding: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.notification-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.notification-text {
+  font-size: 14px;
+  color: #333333;
+}
+
+.notification-expiry {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Gaya dropdown pesan */
+.message-dropdown {
+  padding: 10px;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.message-dropdown li {
+  padding: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.message-dropdown li:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.message-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.message-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-text {
+  font-size: 14px;
+  color: #333333;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Gaya dropdown profil */
+.profile-dropdown-item i {
+  color: var(--primary-color) !important;
+  margin-right: 8px;
+}
+
+.dropdown-menu.profile-dropdown {
+  min-width: 250px; /* Lebar dropdown profil */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.profile-dropdown li {
+  padding: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu.profile-dropdown li:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+/* Gaya tombol logout */
+.btn-logout {
+  background-color: var(--primary-color) !important;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-logout:hover {
+  background-color: #e5b823;
+}
+
+/* Gaya untuk card */
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.custom-card {
+  position: relative;
+  color: white;
+  width: 100%;
+  max-width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.custom-card-restoran {
+  position: relative;
+  color: white;
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.gradient-overlay1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 221, 0, 0.2),
+    rgba(240, 205, 3, 0.8)
+  );
+  z-index: 2;
+}
+
+.gradient-overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 190, 255, 0.2),
+    rgba(12, 165, 182, 0.8)
+  );
+  z-index: 2;
+}
+
+.gradient-overlay3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(19, 249, 61, 0.2),
+    rgba(9, 255, 99, 0.8)
+  );
+  z-index: 2;
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.btn-custom {
+  background-color: white;
+  color: #333;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e5e5e5;
+}
+
+/* Background images */
+.card-1 .card-overlay {
+  background-image: url("../img/card1.png");
+}
+
+.card-2 .card-overlay {
+  background-image: url("../img/card2.png");
+}
+
+.card-3 .card-overlay {
+  background-image: url("../img/card3.png");
+}
+
+/* Gaya untuk card restoran */
+.custom-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+}
+
+.card-img-wrapper {
+  position: relative;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.rating-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.donation-info,
+.distance-info {
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.donation-info i,
+.distance-info i {
+  margin-right: 8px;
+}
+
+/* Menambahkan hover effect */
+.custom-card:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+.custom-card:hover .card-img-top {
+  opacity: 0.8;
+}
+
+.card-body .card-title:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Navbar Bawah */
+.mobile-navbar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.mobile-navbar .container-fluid {
+  padding: 0; /* Menghilangkan padding default */
+}
+
+.mobile-navbar .row {
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Memastikan kolom berada di tengah */
+  align-items: center; /* Menjaga ikon tetap rata tengah secara vertikal */
+}
+
+.mobile-navbar .col-2 {
+  padding: 0; /* Menghilangkan padding di setiap kolom */
+  text-align: center; /* Menjaga ikon tetap di tengah */
+}
+
+.mobile-navbar .col-2 a {
+  text-decoration: none;
+  color: #000;
+  font-size: 24px;
+  display: block;
+  transition: color 0.3s ease;
+  padding: 10px; /* Memberikan sedikit ruang di sekitar ikon */
+}
+
+.mobile-navbar .col-2 a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Dot merah pada versi mobile */
+.dot-indicator-mobile {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: none; /* Secara default, dot tidak terlihat */
+}
+
+.custom-card-restoran a {
+  display: block;
+  text-decoration: none;
+}
+
+.filter-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.filter-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* Tombol X untuk menutup popup */
+.btn-close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.btn-close-popup:hover {
+  color: var(--primary-color) !important; /* Warna utama website */
+}
+
+/* Tombol Terapkan */
+.btn-apply-filter {
+  background-color: var(--primary-color) !important; /* Warna utama website */
+  color: white;
+  border: none;
+  border-radius: 10px; /* Sudut melengkung */
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-apply-filter:hover {
+  background-color: #e5b823; /* Sedikit lebih gelap saat hover */
+}
+
+a.detail_back i {
+  color: #e5b823;
+}
+
+a.detail_back i:hover {
+  color: #836812;
+}
+
+/* Custom button styles */
+.custom-btn,
+.custom-btn-primary {
+  background-color: var(--primary-color) !important;
+  color: #000;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Primary button style for the 'Tambahkan ke Keranjang' */
+.custom-btn-primary {
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover effect */
+.custom-btn:hover,
+.custom-btn-primary:hover {
+  background-color: #e6b622; /* Darker shade for hover */
+}
+
+/* Ensure buttons look good inside modals */
+.modal-footer .btn {
+  width: auto;
+}
+
+a.detail_back i {
+  color: #e5b823;
+}
+
+a.detail_back i:hover {
+  color: #836812;
+}
+
+/* Custom button styles */
+.custom-btn,
+.custom-btn-primary {
+  background-color: var(--primary-color) !important;
+  color: #000;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Primary button style for the 'Tambahkan ke Keranjang' */
+.custom-btn-primary {
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover effect */
+.custom-btn:hover,
+.custom-btn-primary:hover {
+  background-color: #e6b622; /* Darker shade for hover */
+}
+
+/* Ensure buttons look good inside modals */
+.modal-footer .btn {
+  width: auto;
+}
+
+.total-section {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn-checkout {
+  width: 100%;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 1000;
+  width: 300px;
+}
+
+/* Peta full screen */
+#map {
+  width: 100%;
+  height: 90vh;
+  background-image: url("../img/map.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.container-terimakasih {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  padding: 10px;
+}
+
+.thank-you-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.thank-you-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thank-you-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.thank-you-details {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.points-section {
+  background-color: #e7f3ff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+.points-section h5 {
+  margin: 0;
+  color: #007bff;
+}
+/* Rating Bintang */
+.rating {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+.rating .star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ccc;
+}
+.rating .star.active {
+  color: #ffc107;
+}
+
+.profil li {
+  cursor: pointer;
+}
+
+.profil li:hover {
+  color: var(--primary-color) !important;
+}
+/* Menampilkan dot merah pada versi mobile */
+@media (max-width: 768px) {
+  .dot-indicator-mobile {
+    display: block; /* Menampilkan dot */
+  }
+
+  /* Pastikan ikon berada dalam posisi relatif agar dot terletak dengan benar */
+  .mobile-navbar .col-2 a i {
+    position: relative; /* Mengatur posisi relatif untuk ikon */
+  }
+
+  .header .icon-container {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: block;
+  }
+
+  /* Header: mengubah layout menjadi vertikal */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 20px; /* Mengurangi margin */
+  }
+
+  /* Mengubah lebar pencarian untuk lebih pas dengan layar kecil */
+
+  .search-bar {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  /* Menyesuaikan ikon di header */
+  .icon-container {
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Menyusun ikon menjadi baris vertikal */
+  .icon-container i {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  /* Mengurangi ukuran font untuk notifikasi dan pesan */
+  .notification-text,
+  .message-text {
+    font-size: 12px;
+  }
+
+  .notification-expiry,
+  .message-time {
+    font-size: 10px;
+  }
+
+  /* Card Container: Menyusun ulang card dalam satu kolom di perangkat kecil */
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start; /* Rata atas */
+    margin: 20px auto; /* Kurangi margin */
+    width: 90%; /* Lebar hampir penuh */
+  }
+
+  /* Card Layout: Pastikan terlihat lebih responsif */
+  .custom-card {
+    max-width: 100%; /* Sesuai layar penuh */
+    height: auto; /* Sesuaikan tinggi */
+  }
+
+  .custom-card-restoran {
+    max-width: 100%;
+    height: auto; /* Sesuaikan tinggi */
+  }
+
+  /* Kategori: Mengubah kategori menjadi satu kolom */
+  .category {
+    margin-bottom: 15px;
+  }
+
+  .col-md-2 {
+    width: 100%; /* Setiap kategori mengambil 100% lebar pada layar kecil */
+    margin-bottom: 15px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 18px;
+    pointer-events: none;
+  }
+
+  .thank-you-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .thank-you-details {
+    text-align: center;
+    padding: 15px;
+  }
+}
+
+/* Responsif untuk perangkat dengan lebar layar maksimal 480px (Smartphone) */
+@media (max-width: 480px) {
+  /* Memastikan header lebih mudah diakses */
+  .header {
+    margin: 0 10px;
+  }
+
+  /* Mengubah pencarian menjadi full width */
+  .search-input {
+    padding: 8px 20px;
+  }
+
+  /* Menyesuaikan ukuran ikon untuk layar kecil */
+  .icon-container i {
+    font-size: 16px;
+    margin-left: 8px;
+  }
+
+  /* Memperbesar ikon untuk dropdown dan profil */
+  .dot-indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 18px;
+    pointer-events: none;
+  }
+
+  /* Menyusun kembali ikon notifikasi agar terlihat rapi */
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  /* Menyesuaikan layout card agar lebih kecil dan lebih sesuai dengan layar */
+  .custom-card {
+    max-width: 100%;
+    height: 230px;
+  }
+
+  /* Menyusun ulang kategori menjadi satu kolom */
+  .category-name {
+    font-size: 14px;
+  }
+
+  .category img {
+    width: 100px; /* Menyesuaikan ukuran gambar kategori */
+    height: 100px;
+  }
+
+  .container-terimakasih {
+    margin-top: 50px;
+  }
+
+  .thank-you-details {
+    padding: 10px;
+  }
+
+  .thank-you-details h4 {
+    font-size: 1.5rem;
+  }
+
+  .thank-you-details p,
+  .transaction-details p {
+    font-size: 0.9rem;
+  }
+
+  .custom-btn-primary {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

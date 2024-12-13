@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BiteSaver - Terimakasih</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Popup Filter -->
+    <div id="filterPopup" class="filter-popup d-none">
+      <div class="filter-popup-content position-relative">
+        <button
+          class="btn-close-popup position-absolute top-0 end-0 m-2"
+          onclick="closeFilterPopup()"
+        >
+          &times;
+        </button>
+        <h5>Filter</h5>
+        <form>
+          <div class="form-group">
+            <label for="jenisMakanan">Jenis Makanan</label>
+            <select id="jenisMakanan" class="form-select">
+              <option value="">Semua</option>
+              <option value="nasi">Nasi</option>
+              <option value="mie">Mie</option>
+              <option value="roti">Roti</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="urutanHarga">Harga</label>
+            <select id="urutanHarga" class="form-select">
+              <option value="murah">Murah ke Mahal</option>
+              <option value="mahal">Mahal ke Murah</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="bintang">Rating</label>
+            <select id="bintang" class="form-select">
+              <option value="5">Bintang 5</option>
+              <option value="4">Bintang 4 ke atas</option>
+              <option value="3">Bintang 3 ke atas</option>
+            </select>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn custom-btn-primary mt-3 w-100"
+            onclick="applyFilters()"
+          >
+            Terapkan
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Wrapper untuk header agar background full lebar -->
+    <div class="header-wrapper">
+      <div class="header">
+        <!-- Lokasi pengguna -->
+        <div class="location">
+          <i class="bi bi-geo-alt location-icon"></i>
+          <div class="location-info">
+            <div class="location-top">
+              <span class="location-text">Lokasi Anda</span>
+              <i class="bi bi-caret-down-fill dropdown-icon"></i>
+            </div>
+            <span class="address-text">Universitas Muria Kudus</span>
+          </div>
+        </div>
+
+        <!-- Kolom pencarian dan ikon -->
+        <div class="icon-container">
+          <!-- Kolom pencarian -->
+          <div class="search-bar">
+            <i class="bi bi-search search-icon"></i>
+            <input
+              type="text"
+              class="form-control search-input"
+              placeholder="Cari makanan atau minuman..."
+              id="searchInputMobile"
+              onkeypress="handleSearch(event)"
+            />
+            <i
+              class="bi bi-filter filter-icon"
+              onclick="toggleFilterPopup()"
+            ></i>
+          </div>
+
+          <!-- Notifikasi dengan titik merah -->
+          <div class="dropdown">
+            <i class="bi bi-bell" data-bs-toggle="dropdown"></i>
+            <span class="dot-indicator"></span>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li class="notification-item">
+                <img src="assets/img/sate_b2.png" alt="Roti" />
+                <div>
+                  <span class="notification-text">Roti Tawar</span><br />
+                  <span class="notification-expiry"
+                    >Kadaluarsa tanggal <b>15 Januari 2025</b>. Segera
+                    checkout!</span
+                  >
+                </div>
+              </li>
+              <li class="notification-item">
+                <img src="assets/img/sate.png" alt="Susu" />
+                <div>
+                  <span class="notification-text">Susu</span><br />
+                  <span class="notification-expiry"
+                    >Kadaluarsa tanggal <b>12 Oktober 2022025</b>. Segera
+                    checkout!</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pesan dengan titik merah -->
+          <div class="dropdown">
+            <i class="bi bi-chat" data-bs-toggle="dropdown"></i>
+            <span class="dot-indicator"></span>
+            <ul class="dropdown-menu dropdown-menu-end message-dropdown">
+              <li class="message-item">
+                <img src="assets/img/sate_b2.png" alt="Pesan" />
+                <div>
+                  <span class="message-text">Ada pesan baru untuk Anda!</span
+                  ><br />
+                  <span class="message-time">2 menit lalu</span>
+                </div>
+              </li>
+              <li class="message-item">
+                <img src="assets/img/sate.png" alt="Pesan" />
+                <div>
+                  <span class="message-text">Pesan dari Mitra Anda</span><br />
+                  <span class="message-time">5 menit lalu</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Keranjang -->
+          <a href="halaman_keranjang.html"><i class="bi bi-cart"></i></a>
+
+          <!-- Profil dengan dropdown -->
+          <a href="halaman_profil.html"><i class="bi bi-person-circle"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar Bawah dengan 5 Kolom -->
+    <div class="mobile-navbar">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Kolom Halaman Utama -->
+          <div class="col-2 text-center">
+            <a href="halaman_utama.html">
+              <i class="bi bi-house-door"></i>
+              <!-- Ikon Halaman Utama -->
+            </a>
+          </div>
+          <!-- Kolom Notifikasi -->
+          <div class="col-2 text-center">
+            <a href="halaman_notifikasi.html">
+              <i class="bi bi-bell">
+                <!-- Dot Merah pada Notifikasi -->
+                <span class="dot-indicator-mobile"></span>
+              </i>
+            </a>
+          </div>
+          <!-- Kolom Pesan -->
+          <div class="col-2 text-center">
+            <a href="halaman_pesan.html">
+              <i class="bi bi-chat">
+                <!-- Dot Merah pada Pesan -->
+                <span class="dot-indicator-mobile"></span>
+              </i>
+            </a>
+          </div>
+          <!-- Kolom Keranjang -->
+          <div class="col-2 text-center">
+            <a href="halaman_keranjang.html">
+              <i class="bi bi-cart"></i>
+              <!-- Ikon Keranjang -->
+            </a>
+          </div>
+          <!-- Kolom Profil -->
+          <div class="col-2 text-center">
+            <a href="halaman_profil.html">
+              <i class="bi bi-person-circle"></i>
+              <!-- Ikon Profil -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Konten Halaman -->
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <h5 class="mb-4">
+          <a href="halaman_profil.html" class="detail_back"
+            ><i class="bi bi-arrow-left"></i
+          ></a>
+          Profil Pribadi
+        </h5>
+        <div class="col-md-4 col-12 mb-4">
+          <div class="card">
+            <img
+              src="assets/img/sobri.png"
+              class="card-img-top"
+              alt="Foto Profil"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nama Lengkap</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                nec odio. Praesent libero. Sed cursus ante dapibus diam.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-12 mb-5">
+          <div class="card">
+            <div class="card-header">Informasi Pribadi</div>
+            <div class="card-body">
+              <h5 class="card-title">Detail Kontak</h5>
+              <ul class="list-group">
+                <li class="list-group-item">Email: user@example.com</li>
+                <li class="list-group-item">No. Telepon: +62 123 456 789</li>
+                <li class="list-group-item">
+                  Alamat: Jl. Contoh No. 123, Kota, Indonesia
+                </li>
+              </ul>
+              <h5 class="card-title mt-4">Tentang Saya</h5>
+              <p class="card-text">
+                Saya adalah seorang mahasiswa di bidang teknik informatika
+                dengan minat dalam pengembangan perangkat lunak dan teknologi
+                web.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

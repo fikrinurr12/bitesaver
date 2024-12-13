@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pencarian - Warung Cak Suri</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Popup Filter -->
+    <div id="filterPopup" class="filter-popup d-none">
+      <div class="filter-popup-content position-relative">
+        <button
+          class="btn-close-popup position-absolute top-0 end-0 m-2"
+          onclick="closeFilterPopup()"
+        >
+          &times;
+        </button>
+        <h5>Filter</h5>
+        <form>
+          <div class="form-group">
+            <label for="jenisMakanan">Jenis Makanan</label>
+            <select id="jenisMakanan" class="form-select">
+              <option value="">Semua</option>
+              <option value="nasi">Nasi</option>
+              <option value="mie">Mie</option>
+              <option value="roti">Roti</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="urutanHarga">Harga</label>
+            <select id="urutanHarga" class="form-select">
+              <option value="murah">Murah ke Mahal</option>
+              <option value="mahal">Mahal ke Murah</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="bintang">Rating</label>
+            <select id="bintang" class="form-select">
+              <option value="5">Bintang 5</option>
+              <option value="4">Bintang 4 ke atas</option>
+              <option value="3">Bintang 3 ke atas</option>
+            </select>
+          </div>
+          <br />
+          <button
+            type="button"
+            class="btn custom-btn-primary mt-3 w-100"
+            onclick="applyFilters()"
+          >
+            Terapkan
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Wrapper untuk header agar background full lebar -->
+    <div class="header-wrapper">
+      <div class="header">
+        <!-- Lokasi pengguna -->
+        <div class="location">
+          <i class="bi bi-geo-alt location-icon"></i>
+          <div class="location-info">
+            <div class="location-top">
+              <span class="location-text">Lokasi Anda</span>
+              <i class="bi bi-caret-down-fill dropdown-icon"></i>
+            </div>
+            <span class="address-text">Universitas Muria Kudus</span>
+          </div>
+        </div>
+
+        <!-- Kolom pencarian dan ikon -->
+        <div class="icon-container">
+          <!-- Kolom pencarian -->
+          <div class="search-bar">
+            <i class="bi bi-search search-icon"></i>
+            <input
+              type="text"
+              class="form-control search-input"
+              placeholder="Cari makanan atau minuman..."
+              id="searchInputMobile"
+              onkeypress="handleSearch(event)"
+            />
+            <i
+              class="bi bi-filter filter-icon"
+              onclick="toggleFilterPopup()"
+            ></i>
+          </div>
+
+          <!-- Notifikasi dengan titik merah -->
+          <div class="dropdown">
+            <i class="bi bi-bell" data-bs-toggle="dropdown"></i>
+            <span class="dot-indicator"></span>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li class="notification-item">
+                <img src="assets/img/sate_b2.png" alt="Roti" />
+                <div>
+                  <span class="notification-text">Roti Tawar</span><br />
+                  <span class="notification-expiry"
+                    >Kadaluarsa tanggal <b>15 Januari 2025</b>. Segera
+                    checkout!</span
+                  >
+                </div>
+              </li>
+              <li class="notification-item">
+                <img src="assets/img/sate.png" alt="Susu" />
+                <div>
+                  <span class="notification-text">Susu</span><br />
+                  <span class="notification-expiry"
+                    >Kadaluarsa tanggal <b>12 Oktober 2022025</b>. Segera
+                    checkout!</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pesan dengan titik merah -->
+          <div class="dropdown">
+            <i class="bi bi-chat" data-bs-toggle="dropdown"></i>
+            <span class="dot-indicator"></span>
+            <ul class="dropdown-menu dropdown-menu-end message-dropdown">
+              <li class="message-item">
+                <img src="assets/img/sate_b2.png" alt="Pesan" />
+                <div>
+                  <span class="message-text">Ada pesan baru untuk Anda!</span
+                  ><br />
+                  <span class="message-time">2 menit lalu</span>
+                </div>
+              </li>
+              <li class="message-item">
+                <img src="assets/img/sate.png" alt="Pesan" />
+                <div>
+                  <span class="message-text">Pesan dari Mitra Anda</span><br />
+                  <span class="message-time">5 menit lalu</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Keranjang -->
+          <a href="halaman_keranjang.html"><i class="bi bi-cart"></i></a>
+
+          <!-- Profil dengan dropdown -->
+          <a href="halaman_profil.html"><i class="bi bi-person-circle"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar Bawah dengan 5 Kolom -->
+    <div class="mobile-navbar">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Kolom Halaman Utama -->
+          <div class="col-2 text-center">
+            <a href="halaman_utama.html">
+              <i class="bi bi-house-door"></i>
+              <!-- Ikon Halaman Utama -->
+            </a>
+          </div>
+          <!-- Kolom Notifikasi -->
+          <div class="col-2 text-center">
+            <a href="halaman_notifikasi.html">
+              <i class="bi bi-bell">
+                <!-- Dot Merah pada Notifikasi -->
+                <span class="dot-indicator-mobile"></span>
+              </i>
+            </a>
+          </div>
+          <!-- Kolom Pesan -->
+          <div class="col-2 text-center">
+            <a href="halaman_pesan.html">
+              <i class="bi bi-chat">
+                <!-- Dot Merah pada Pesan -->
+                <span class="dot-indicator-mobile"></span>
+              </i>
+            </a>
+          </div>
+          <!-- Kolom Keranjang -->
+          <div class="col-2 text-center">
+            <a href="halaman_keranjang.html">
+              <i class="bi bi-cart"></i>
+              <!-- Ikon Keranjang -->
+            </a>
+          </div>
+          <!-- Kolom Profil -->
+          <div class="col-2 text-center">
+            <a href="halaman_profil.html">
+              <i class="bi bi-person-circle"></i>
+              <!-- Ikon Profil -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section untuk Restoran Terdekat -->
+    <div class="container mt-5 mb-5">
+      <h5 class="mb-4">
+        <a href="halaman_utama.html" class="detail_back"
+          ><i class="bi bi-arrow-left"></i
+        ></a>
+        Hasil Pencarian
+      </h5>
+      <!-- Section untuk Restoran Terdekat -->
+      <div class="container mt-5 mb-5">
+        <div class="row">
+          <!-- Restoran 1 -->
+          <div class="col-md-4 mb-4">
+            <a href="halaman_restoran_1.html" class="d-block">
+              <div class="card custom-card-restoran shadow-sm">
+                <div class="card-img-wrapper">
+                  <img
+                    src="assets/img/warung_cak_suri.png"
+                    class="card-img-top"
+                    alt="Restoran 1"
+                  />
+                  <div class="rating-icon">
+                    <i class="bi bi-star-fill"></i> 4.5
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Warung Sate Cak Suri</h5>
+                  <div class="donation-info">
+                    <i class="bi bi-basket"></i> 30 Donasi Makanan
+                  </div>
+                  <div class="distance-info">
+                    <i class="bi bi-geo-alt"></i> 1.5 km
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Restoran 2 -->
+          <div class="col-md-4 mb-4">
+            <a href="halaman_restoran_2.html" class="d-block">
+              <div class="card custom-card-restoran shadow-sm">
+                <div class="card-img-wrapper">
+                  <img
+                    src="assets/img/warteg_kharisma.png"
+                    class="card-img-top"
+                    alt="Restoran 2"
+                  />
+                  <div class="rating-icon">
+                    <i class="bi bi-star-fill"></i> 4.8
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Warteg Kharisma</h5>
+                  <div class="donation-info">
+                    <i class="bi bi-basket"></i> 25 Donasi Makanan
+                  </div>
+                  <div class="distance-info">
+                    <i class="bi bi-geo-alt"></i> 2.0 km
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Restoran 3 -->
+          <div class="col-md-4 mb-4">
+            <a href="halaman_restoran_3.html" class="d-block">
+              <div class="card custom-card-restoran shadow-sm">
+                <div class="card-img-wrapper">
+                  <img
+                    src="assets/img/seblak.png"
+                    class="card-img-top"
+                    alt="Restoran 3"
+                  />
+                  <div class="rating-icon">
+                    <i class="bi bi-star-fill"></i> 4.2
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Seblak Janda</h5>
+                  <div class="donation-info">
+                    <i class="bi bi-basket"></i> 15 Donasi Makanan
+                  </div>
+                  <div class="distance-info">
+                    <i class="bi bi-geo-alt"></i> 3.2 km
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Restoran 1 -->
+        <div class="col-md-4 mb-4">
+          <a
+            href="#"
+            class="d-block"
+            onclick="openOrderModal('Sate Ayam', 'assets/img/sate.png', 20, 15000)"
+          >
+            <div class="card custom-card-restoran shadow-sm">
+              <div class="card-img-wrapper">
+                <img
+                  src="assets/img/sate.png"
+                  class="card-img-top"
+                  alt="Restoran 1"
+                />
+                <div class="rating-icon">
+                  <i class="bi bi-star-fill"></i> 4.5
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Sate Ayam</h5>
+                <div class="donation-info">
+                  <i class="bi bi-basket"></i> 20 Porsi
+                </div>
+                <div class="distance-info">
+                  <i class="bi bi-cash"></i>Rp.15.000
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Restoran 2 -->
+        <div class="col-md-4 mb-4">
+          <a
+            href="#"
+            class="d-block"
+            onclick="openOrderModal('Sate B2', 'assets/img/sate_b2.png', 10, 25000)"
+          >
+            <div class="card custom-card-restoran shadow-sm">
+              <div class="card-img-wrapper">
+                <img
+                  src="assets/img/sate_b2.png"
+                  class="card-img-top"
+                  alt="Restoran 2"
+                />
+                <div class="rating-icon">
+                  <i class="bi bi-star-fill"></i> 4.8
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Sate B2</h5>
+                <div class="donation-info">
+                  <i class="bi bi-basket"></i> 10 Porsi
+                </div>
+                <div class="distance-info">
+                  <i class="bi bi-cash"></i>Rp.25.000
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk Pemesanan -->
+    <div
+      class="modal fade"
+      id="orderModal"
+      tabindex="-1"
+      aria-labelledby="orderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 400px">
+        <!-- Adjusted modal width -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderModalLabel">Pemesanan</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Gambar Menu -->
+            <div class="text-center mb-3">
+              <img
+                id="menuImage"
+                src=""
+                alt="Menu Gambar"
+                class="img-fluid"
+                style="max-width: 100%; height: auto"
+              />
+            </div>
+            <!-- Nama Menu -->
+            <h5 id="menuName" class="text-center mb-3"></h5>
+            <!-- Informasi Jumlah Porsi dan Harga (Vertically aligned) -->
+            <div class="text-center mb-3">
+              <div><b>Harga:</b> Rp. <span id="menuPrice"></span></div>
+              <div>
+                <b>Porsi Tersedia:</b> <span id="availablePortions"></span>
+              </div>
+            </div>
+            <!-- Pemilihan Jumlah Porsi -->
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <button class="btn custom-btn me-3" onclick="decreaseQuantity()">
+                -
+              </button>
+              <span id="quantity" class="mx-2">1</span>
+              <button class="btn custom-btn ms-3" onclick="increaseQuantity()">
+                +
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn custom-btn-primary w-100"
+              onclick="addToCart()"
+            >
+              Tambahkan ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

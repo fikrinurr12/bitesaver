@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BiteSaver - Masuk atau Daftar</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      /* Gambar tetap ukuran yang ditentukan, dan tidak mengecil */
+      .responsive-img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .tombol {
+        width: 300px;
+        color: #ff460a !important;
+      }
+
+      /* Link "Lewati" di pojok kanan atas */
+      .skip-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .skip-link:hover {
+        color: #ff460a;
+      }
+
+      .skip-link i {
+        margin-left: 8px;
+      }
+
+      /* Link "Masuk" */
+      .masuk-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .masuk-link:hover {
+        color: #808080; /* Warna abu-abu */
+      }
+
+      /* Membuat gambar keluar sedikit dari layar jika diperlukan */
+      @media (max-width: 768px) {
+        .responsive-img {
+          max-width: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-warning d-flex justify-content-center align-items-center">
+    <!-- Logo di kiri atas dengan margin -->
+    <div class="position-absolute start-0 top-0 mt-4 ms-5">
+      <img
+        src="assets/img/logo.png"
+        alt="Logo"
+        style="width: 50px; height: auto"
+      />
+    </div>
+
+    <!-- Link Lewati di kanan atas -->
+    <div class="position-absolute end-0 top-0 mt-4 me-5">
+      <a href="halaman_utama.html" class="skip-link d-flex align-items-center">
+        Lewati <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
+
+    <!-- Konten di tengah -->
+    <div
+      class="container text-center d-flex flex-column justify-content-center align-items-center"
+    >
+      <img
+        src="assets/img/gambar_opening.png"
+        alt="Deskripsi Gambar"
+        class="responsive-img mb-3"
+      />
+      <h3 class="text-white mb-5">
+        Temukan makanan <br />
+        favoritmu <br />
+        dengan banyak diskon.
+      </h3>
+      <a
+        href="daftar.html"
+        class="btn btn-light text-dark rounded-pill py-3 tombol mb-3"
+      >
+        Daftar
+      </a>
+      <a href="masuk.html" class="masuk-link mb-5"> Masuk </a>
+    </div>
+  </body>
+</html>
