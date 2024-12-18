@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BiteSaver - Halaman Utama</title>
+    <title>Pencarian - Warung Cak Suri</title>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,7 +64,6 @@
         </form>
       </div>
     </div>
-
     <!-- Wrapper untuk header agar background full lebar -->
     <div class="header-wrapper">
       <div class="header">
@@ -205,148 +204,27 @@
       </div>
     </div>
 
-    <div class="container">
-      <div id="mobileSearchBar" class="d-md-none">
-        <div class="search-bar">
-          <i class="bi bi-search search-icon"></i>
-          <input
-            type="text"
-            class="form-control search-input"
-            placeholder="Cari makanan atau minuman..."
-            id="searchInputMobile"
-            onkeypress="handleSearch(event)"
-          />
-          <i class="bi bi-filter filter-icon" onclick="toggleFilterPopup()"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section untuk Card -->
-    <div class="card-container">
-      <div class="custom-card card-1 shadow-sm">
-        <div class="card-overlay"></div>
-        <div class="gradient-overlay1"></div>
-        <div class="card-content">
-          <h5>Bergabung Sebagai Mitra</h5>
-          <p>Ayo tingkatkan bisnis Anda bersama kami</p>
-          <button onclick="daftarSekarang()" class="btn-custom">
-            Daftar Sekarang
-          </button>
-        </div>
-      </div>
-      <div class="custom-card card-2 shadow-sm">
-        <div class="card-overlay"></div>
-        <div class="gradient-overlay2"></div>
-        <div class="card-content">
-          <h5>Diskon Menarik</h5>
-          <p>Temukan produk dengan harga spesial</p>
-          <button onclick="diskonMakanan()" class="btn-custom">
-            Cari Diskon
-          </button>
-        </div>
-      </div>
-      <div class="custom-card card-3 shadow-sm">
-        <div class="card-overlay"></div>
-        <div class="gradient-overlay3"></div>
-        <div class="card-content">
-          <h5>Dukung Aksi Sosial</h5>
-          <p>Donasikan makanan untuk lingkungan</p>
-          <button onclick="donasiMakanan()" class="btn-custom">
-            Donasi Sekarang
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section untuk Kategori -->
-    <div class="container mt-5">
-      <h5 class="mb-4">Kategori</h5>
-      <div class="row">
-        <!-- Kategori 5 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <a
-              href="halaman_pencarian_kategori.html"
-              class="text-decoration:none;"
-            >
-              <img
-                src="assets/img/kategori5.png"
-                class="img-fluid rounded-circle"
-                alt="Daging"
-              />
-              <div class="category-name">Daging</div>
-            </a>
-          </div>
-        </div>
-        <!-- Kategori 1 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <img
-              src="assets/img/kategori1.png"
-              class="img-fluid rounded-circle"
-              alt="Buah-buahan"
-            />
-            <div class="category-name">Buah-buahan</div>
-          </div>
-        </div>
-        <!-- Kategori 2 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <img
-              src="assets/img/kategori2.png"
-              class="img-fluid rounded-circle"
-              alt="Sayuran"
-            />
-            <div class="category-name">Sayuran</div>
-          </div>
-        </div>
-        <!-- Kategori 3 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <img
-              src="assets/img/kategori3.png"
-              class="img-fluid rounded-circle"
-              alt="Cemilan"
-            />
-            <div class="category-name">Cemilan</div>
-          </div>
-        </div>
-        <!-- Kategori 4 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <img
-              src="assets/img/kategori4.png"
-              class="img-fluid rounded-circle"
-              alt="Minuman"
-            />
-            <div class="category-name">Minuman</div>
-          </div>
-        </div>
-        <!-- Kategori 6 -->
-        <div class="col-4 text-center">
-          <div class="category">
-            <img
-              src="assets/img/kategori6.png"
-              class="img-fluid rounded-circle"
-              alt="Produk Susu"
-            />
-            <div class="category-name">Produk Susu</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Section untuk Restoran Terdekat -->
     <div class="container mt-5 mb-5">
-      <h5 class="mb-4">Restoran Terdekat</h5>
-      <div class="row">
+      <h5 class="mb-4">
+        <a href="halaman_utama.html" class="detail_back"
+          ><i class="bi bi-arrow-left"></i
+        ></a>
+        Hasil Pencarian : Kategori Daging
+      </h5>
+      <!-- Section untuk Restoran Terdekat -->
+      <div class="container mt-5 mb-5">
         <!-- Restoran 1 -->
         <div class="col-md-4 mb-4">
-          <a href="halaman_restoran_1.html" class="d-block">
+          <a
+            href="#"
+            class="d-block"
+            onclick="openOrderModal('Sate Ayam', 'assets/img/sate.png', 20, 15000)"
+          >
             <div class="card custom-card-restoran shadow-sm">
               <div class="card-img-wrapper">
                 <img
-                  src="assets/img/warung_cak_suri.png"
+                  src="assets/img/sate.png"
                   class="card-img-top"
                   alt="Restoran 1"
                 />
@@ -355,12 +233,12 @@
                 </div>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Warung Sate Cak Suri</h5>
+                <h5 class="card-title">Sate Ayam</h5>
                 <div class="donation-info">
-                  <i class="bi bi-basket"></i> 30 Donasi Makanan
+                  <i class="bi bi-basket"></i> 20 Porsi
                 </div>
                 <div class="distance-info">
-                  <i class="bi bi-geo-alt"></i> 1.5 km
+                  <i class="bi bi-cash"></i>Rp.15.000
                 </div>
               </div>
             </div>
@@ -369,11 +247,15 @@
 
         <!-- Restoran 2 -->
         <div class="col-md-4 mb-4">
-          <a href="halaman_restoran_2.html" class="d-block">
+          <a
+            href="#"
+            class="d-block"
+            onclick="openOrderModal('Sate B2', 'assets/img/sate_b2.png', 10, 25000)"
+          >
             <div class="card custom-card-restoran shadow-sm">
               <div class="card-img-wrapper">
                 <img
-                  src="assets/img/warteg_kharisma.png"
+                  src="assets/img/sate_b2.png"
                   class="card-img-top"
                   alt="Restoran 2"
                 />
@@ -382,43 +264,80 @@
                 </div>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Warteg Kharisma</h5>
+                <h5 class="card-title">Sate B2</h5>
                 <div class="donation-info">
-                  <i class="bi bi-basket"></i> 25 Donasi Makanan
+                  <i class="bi bi-basket"></i> 10 Porsi
                 </div>
                 <div class="distance-info">
-                  <i class="bi bi-geo-alt"></i> 2.0 km
+                  <i class="bi bi-cash"></i>Rp.25.000
                 </div>
               </div>
             </div>
           </a>
         </div>
+      </div>
+    </div>
 
-        <!-- Restoran 3 -->
-        <div class="col-md-4 mb-4">
-          <a href="halaman_restoran_3.html" class="d-block">
-            <div class="card custom-card-restoran shadow-sm">
-              <div class="card-img-wrapper">
-                <img
-                  src="assets/img/seblak.png"
-                  class="card-img-top"
-                  alt="Restoran 3"
-                />
-                <div class="rating-icon">
-                  <i class="bi bi-star-fill"></i> 4.2
-                </div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Seblak Janda</h5>
-                <div class="donation-info">
-                  <i class="bi bi-basket"></i> 15 Donasi Makanan
-                </div>
-                <div class="distance-info">
-                  <i class="bi bi-geo-alt"></i> 3.2 km
-                </div>
+    <!-- Modal untuk Pemesanan -->
+    <div
+      class="modal fade"
+      id="orderModal"
+      tabindex="-1"
+      aria-labelledby="orderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 400px">
+        <!-- Adjusted modal width -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderModalLabel">Pemesanan</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Gambar Menu -->
+            <div class="text-center mb-3">
+              <img
+                id="menuImage"
+                src=""
+                alt="Menu Gambar"
+                class="img-fluid"
+                style="max-width: 100%; height: auto"
+              />
+            </div>
+            <!-- Nama Menu -->
+            <h5 id="menuName" class="text-center mb-3"></h5>
+            <!-- Informasi Jumlah Porsi dan Harga (Vertically aligned) -->
+            <div class="text-center mb-3">
+              <div><b>Harga:</b> Rp. <span id="menuPrice"></span></div>
+              <div>
+                <b>Porsi Tersedia:</b> <span id="availablePortions"></span>
               </div>
             </div>
-          </a>
+            <!-- Pemilihan Jumlah Porsi -->
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <button class="btn custom-btn me-3" onclick="decreaseQuantity()">
+                -
+              </button>
+              <span id="quantity" class="mx-2">1</span>
+              <button class="btn custom-btn ms-3" onclick="increaseQuantity()">
+                +
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn custom-btn-primary w-100"
+              onclick="addToCart()"
+            >
+              Tambahkan ke Keranjang
+            </button>
+          </div>
         </div>
       </div>
     </div>
